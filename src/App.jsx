@@ -107,7 +107,7 @@ function App() {
 
   useEffect(() => {
 
-    localStorage.setItem('selectedTeam',JSON.stringify(employees));
+    localStorage.setItem('selectedTeam',JSON.stringify(selectedTeam));
 
   }, [selectedTeam]); 
 
