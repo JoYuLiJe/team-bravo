@@ -27,13 +27,14 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
 
     }
 
-    function handleTeamClick(event){
-        var transformedGroupData = groupedEmplyees.map((groupedData)=> groupedData.team === event.currentTarget.id 
-                                                               ?{...groupedData,collapsed:!groupedData.collapsed}
-                                                               :groupedData);
-        setGroupedData(transfomedGroupData);
+    function handleTeamClick(event) {
+        var transformedGroupData = groupedEmployees.map((groupedData) => 
+                                                        groupedData.team === event.currentTarget.id 
+                                                        ?{...groupedData,collapsed: !groupedData.collapsed }
+                                                        :groupedData);
+        setGroupedData(transformedGroupData);
         setTeam(event.currentTarget.id);
-
+    }
     return (
         <main className="container">
             {
@@ -44,7 +45,7 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
                                 Team Name: {item.team}
                             </h4>
                             <div id ={"collapse_" + item.team}
-                                    className={item.collapsed === true?"collapsed":""}>
+                                    className={item.collapsed === true?"collapse":""}>
                                 <hr/>
                                 {
                                     item.members.map(member => {
@@ -70,4 +71,6 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
 
     
 }
-export default GroupedTeamMembers;
+
+
+export default GroupedTeamMembers
