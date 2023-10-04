@@ -99,28 +99,27 @@ function App() {
     teamName: "TeamD"
   }]);
 
-    useEffect(() => {
+  useEffect(() => {
 
-      localStorage.setItem('employeeList',JSON.stringify(employees));
+    localStorage.setItem('employeeList', JSON.stringify(employees));
 
-    }, [employees]);
+  }, [employees]);
 
-    useEffect(() => {
+  useEffect(() => {
 
-      localStorage.setItem('selectedTeam',JSON.stringify(employees));
+    localStorage.setItem('selectedTeam',JSON.stringify(employees));
 
-    }, [selectedTeam]); 
+  }, [selectedTeam]); 
 
 
 
   function handleTeamSelectionChange(event) {
     setTeam(event.target.value);
   }
-  
   function handleEmployeeCardClick(event) {
     const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
-                                            ? (employee.teamName === selectedTeam) ? {...employee, teamName: '' } : { ...employee, teamName: selectedTeam }
-                                            : employee);
+      ? (employee.teamName === selectedTeam) ? {...employee, teamName: '' } : { ...employee, teamName: selectedTeam }
+      : employee);
     setEmployees(transformedEmployees);
 
   }
